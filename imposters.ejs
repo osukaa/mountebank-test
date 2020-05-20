@@ -1,0 +1,37 @@
+{
+  "imposters": [
+    {
+       "protocol": "http",
+       "port": 3003,
+       "name": "Upstream Service",
+       "stubs": [
+        {
+          "predicates": [
+            {
+              "equals": {
+                "path": "/under-pressure"
+              }
+            }
+          ],
+          "responses": [
+            {
+              "is": {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "products": [{
+                    "id": "id-1",
+                    "name": "name-1",
+                    "description": "description-1"
+                  }]
+                }
+              }
+            }
+          ]
+        }
+       ]
+     }
+   ]
+ }
